@@ -1,0 +1,38 @@
+<div class="giscus-wrapper">
+<script>
+        // 动态设置 Giscus 的 data-theme 属性
+        function setGiscusTheme() {
+        const theme = localStorage.theme === 'dark' ? 'dark_dimmed' : 'light';
+        const giscusScript = document.createElement('script');
+        giscusScript.src = "https://giscus.app/client.js";
+        giscusScript.setAttribute('data-repo', '1yhy/blog');
+        giscusScript.setAttribute('data-repo-id', 'R_kgDOM_m8YA');
+        giscusScript.setAttribute('data-category', 'Announcements');
+        giscusScript.setAttribute('data-category-id', 'DIC_kwDOM_m8YM4CjUnL');
+        giscusScript.setAttribute('data-mapping', 'pathname');
+        giscusScript.setAttribute('data-strict', '0');
+        giscusScript.setAttribute('data-reactions-enabled', '1');
+        giscusScript.setAttribute('data-emit-metadata', '1');
+        giscusScript.setAttribute('data-input-position', 'top');
+        giscusScript.setAttribute('data-theme', theme);
+        giscusScript.setAttribute('data-lang', 'zh-CN');
+        giscusScript.setAttribute('data-loading', 'lazy');
+        giscusScript.crossOrigin = 'anonymous';
+        giscusScript.async = true;
+
+        // 将脚本插入到页面中
+        document.querySelector('.giscus-wrapper').appendChild(giscusScript);
+        }
+
+        // 初始化时调用
+        setGiscusTheme();
+
+        // 监听 localStorage 的主题变化（可选）
+        window.addEventListener('storage', function(event) {
+        if (event.key === 'theme') {
+                // 重新设置 Giscus 主题
+                setGiscusTheme();
+        }
+        });
+</script>
+</div>
